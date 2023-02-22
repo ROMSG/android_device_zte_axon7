@@ -33,12 +33,21 @@
 
 #include "property_service.h"
 #include "vendor_init.h"
+#include <sys/system_properties.h>
 
 using android::base::GetProperty;
-using android::init::property_set;
+using android::init::PropertyInit;
 
 char const *heapminfree;
 char const *heapmaxfree;
+
+void property_set(char const prop[], char const value[])
+{
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    
+}
 
 void check_device()
 {
