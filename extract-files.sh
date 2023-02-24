@@ -55,6 +55,9 @@ function blob_fixup() {
     etc/permissions/qti-vzw-ims-internal.xml)
         sed -i "s|/system/vendor/framework/qti-vzw-ims-internal.jar|/vendor/framework/qti-vzw-ims-internal.jar|g" "${2}"
         ;;
+    vendor/lib/libwvhidl.so)
+        "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
+        ;;
     vendor/lib/libFNVfbEngineHAL.so)
         patchelf --add-needed "libshim_camera.so" "${2}"
         ;;

@@ -108,14 +108,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
     android.hardware.audio@2.0-service \
+    android.hardware.audio.effect@2.0-impl \
     android.hardware.audio@5.0 \
     android.hardware.audio@5.0-impl \
     android.hardware.audio.common@5.0 \
     android.hardware.audio.common@5.0-util \
     android.hardware.audio.effect@5.0 \
     android.hardware.audio.effect@5.0-impl \
-    android.hardware.soundtrigger@2.2-impl \
-    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.soundtrigger@2.1-impl \
     audio.bluetooth.default \
     audio.a2dp.default \
     audio_amplifier.msm8996 \
@@ -200,6 +200,10 @@ PRODUCT_PACKAGES += \
     memtrack.msm8996 \
     libdisplayconfig \
     qdcm_calib_data_zteSAM_S6E3HA3_SAM_25601440_5P5Inch.xml
+
+# Libandroidicu
+PRODUCT_HOST_PACKAGES += \
+    libandroidicu
 
 # Doze mode
 PRODUCT_PACKAGES += \
@@ -361,7 +365,11 @@ PRODUCT_COPY_FILES += \
 
 # QMI
 PRODUCT_PACKAGES += \
-    libjson
+    libjson \
+    libqti_vndfwk_detect \
+    libqti_vndfwk_detect.vendor \
+    libvndfwk_detect_jni.qti \
+    libvndfwk_detect_jni.qti.vendor
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -407,7 +415,10 @@ PRODUCT_PACKAGES += \
     
 # Shims
 PRODUCT_PACKAGES += \
-    libbase_shim
+    libbase_shim \
+    liblatency_shim \
+    libwvhidl_shim \
+    libshim_dpmframework
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -446,6 +457,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-sp/libbase.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libbase-v28.so \
     prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-sp/libhidlbase.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libhidlbase-v28.so
+    
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v29.so \
+    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite-v29.so \\
 
 # Vibrator
 PRODUCT_PACKAGES += \
